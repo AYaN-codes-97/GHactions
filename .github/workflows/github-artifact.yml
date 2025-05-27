@@ -15,20 +15,21 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-              name: checkout
+            - name: checkout
               uses: actions/checkout@v3
+            - name: setup node
               uses: actions/setup-node@v3
               with:
                 node-version: 20
-              name: install dependencies
+            - name: install dependencies
               run: npm ci
-              name: Run Lint
+            - name: Run Lint
               run: npm run lint
-      -       name: Run Tests
+            - name: Run Tests
               run: npm run test
-      -       name: Run Build
+            - name: Run Build
               run: npm run build
-              name: upload artifact
+            - name: upload artifact
               uses: actions/upload-artifact@v4
               with:
                 name: build-artifact
