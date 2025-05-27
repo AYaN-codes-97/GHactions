@@ -1,0 +1,20 @@
+name: GitHub Context
+on:
+    pull_request:
+        types: [closed]
+        branches:
+            - main
+jobs:
+  output-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Output context
+        run: |
+          echo "PR Number: ${{ github.event.pull_request.number }}"
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          echo "PR Author: ${{ github.event.pull_request.user.login }}"
+          echo "PR Body: ${{ github.event.pull_request.body }}"
+          
+      
