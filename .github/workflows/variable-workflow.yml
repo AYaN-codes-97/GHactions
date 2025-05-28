@@ -5,7 +5,7 @@ jobs:
     job1:
         runs-on: ubuntu-latest
         outputs:
-            output1: ${{ steps.step1.outputs.result }}
+            output1: "output 1 is : ${{ steps.step1.outputs.result }}"
         steps:
             - name: step1
               id: step1
