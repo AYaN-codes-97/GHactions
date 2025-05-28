@@ -1,0 +1,10 @@
+name: env var retrieval
+on:
+    workflow_dispatch:
+jobs:
+    use-env-var:
+        runs-on: ubuntu-latest
+        environment: "dev"
+        steps:
+            - name: check env variable
+              run: echo "Github en var ${{env.ENV_VAR}}"
