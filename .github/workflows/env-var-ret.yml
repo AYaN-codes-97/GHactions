@@ -7,4 +7,4 @@ jobs:
         environment: "dev"
         steps:
             - name: check env variable
-              run: echo "Github en var ${{env.ENV_VAR}}"
+              run: echo "Github en var ${{env.ENV_VAR_1}}"
