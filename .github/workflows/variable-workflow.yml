@@ -1,0 +1,18 @@
+name: workflow with variables
+on:
+    workflow_dispatch:
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        outputs:
+            output1: ${{ steps.step1.outputs.result }}
+        steps:
+            - name: step1
+              id: step1
+              run: echo "result=Hello, world!" >> $GITHUB_OUTPUT
+    job2:
+        needs: job1
+        runs-on: ubuntu-latest
+        steps:
+            - name: step2
+              run: echo "out from job1 is ${{ needs.job1.outputs.output1 }}"
